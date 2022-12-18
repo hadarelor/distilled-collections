@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Distilled Collections from Textual Image Queries</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+    <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon" />
+</head>
+<body>
+    <h1>Distilled Collections from Textual Image Queries</h1>
+    <div class="authors">
+        <a href="https://www.elor.sites.tau.ac.il/">Hadar Averbuch-Elor</a><sup>1</sup>,
+        <a href="http://web.siat.ac.cn/~yunhai/">Yunhai Wang</a><sup>2,3*</sup>,
+        Yiming Qian<sup>3</sup>,
+		<a href="http://www.cs.mun.ca/~gong/">Minglun Gong</a><sup>3</sup>,
+		<a href="http://johanneskopf.de/">Johannes Kopf</a><sup>4</sup>,
+		<a href="http://www.cs.sfu.ca/~haoz/">Hao Zhang</a><sup>5</sup>,
+        <a href="http://www.cs.tau.ac.il/~dcor/">Daniel Cohen-Or</a><sup>1</sup>
+    </div>
+    <div class="institutions">
+        <sup>1</sup>Tel Aviv University<br />
+		<sup>2</sup>Shenzhen VisuCA Key Lab/SIAT<br />
+		<sup>3</sup>Memorial University <br />
+		<sup>4</sup>Microsoft Research<br />
+		<sup>5</sup>Simon Fraser University<br />
+    </div>
+    <div class="conference">
+        <a href="http://www.eurographics2015.ch/">Eurographics 2015</a>
+    </div>
+ 
+   <div class="teaser">
+        <table class="results">
+            <tr>
+                <td><img alt="Results 1" src="noisy_collection.png" height="300"/></td>
+				<td><img alt="Results 2" src="segmented.png" height="300"/></td>
+				<td><img alt="Results 3" src="distilled.png" height="300"/></td>
+           <!--     <td><img alt="Results 2" src="teaser2lr.png" /></td>
+                <td><img alt="Results 3" src="teaser3lr.png" /></td>
+                <td><img alt="Results 4" src="teaser4lr.png" /></td> -->
+            </tr>
+            <tr>
+                <td>(a)</td>
+				<td>(b)</td>
+				<td>(c)</td>
+            </tr>
+        </table>
+        <p>
+        Figure: (a) Unstructured image collections from text queries are noisy and typically contain many images that do not show
+the object of interest (such outliers are marked with red borders). (b) Single-image segmentation is unreliable and produces
+many erroneous shapes, which either do not contain the object, cut off parts of it, or include chunks of the background. (c) Our
+distillation algorithm extracts only a subset of kernel of inlier shapes and organizes them into clusters (marked with colored
+boundaries).
+        </p>
+    </div> 
+
+    <h2>Abstract</h2>
+    <p>
+	We present a distillation algorithm which 
+operates on a large, unstructured, and noisy collection of internet images returned 
+from an online object query. We introduce the notion of a distilled set, which is a clean, coherent, and structured subset of <i> inlier </i>
+images.
+In addition, the object of interest is properly segmented out throughout the distilled set.
+Our approach is unsupervised, built on a novel clustering scheme, and solves
+the distillation and object segmentation problems simultaneously.
+In essence, instead of distilling the collection of images, we distill a collection of 
+loosely cutout foreground ``shapes'', which may or may not contain the queried 
+object. Our key observation, which motivated our clustering scheme, is that outlier
+shapes are expected to be random in nature, 
+whereas, inlier shapes, which do tightly enclose the object of interest, tend to be well 
+supported by similar shapes captured in similar views. 
+We analyze the commonalities among candidate foreground segments, 
+without aiming to analyze their semantics, but simply by clustering 
+similar shapes and considering only the most significant clusters representing non-trivial
+shapes.
+We show that when tuned conservatively, our distillation algorithm is able to extract a 
+near perfect subset of true inliers. Furthermore, we show that our technique scales well in the sense that the precision rate remains high, as the collection grows.
+We demonstrate the utility of our distillation results
+with a number of interesting graphics applications.
+    </p>
+
+   <!-- <h2>Results</h2> -->
+   
+
+    <h2>Resources</h2>
+	<a href="distilled.pdf">Paper</a> (PDF)<br />
+	<a href="Datasets.zip">Datasets</a> (our full Elephant, Full Body, Headphone, Hippo, Office Chair, and Rubber Duck collections) <br />
+	<a href="Results.zip">Results</a> (on our datasets using single-image segmentation) <br />
+   <!--  <p>
+        <a href="wcseg.pdf">Paper</a> (PDF, 7MB)<br />
+        <!-- <a href="http://dx.doi.org/10.1145/2461912.2461924">DOI</a> 
+        <a href="wcseg.zip">MATLAB Code</a><br />
+        <a href="data.zip">Datasets</a> (point clouds and incremental views in obj and ply formats)<br />
+        <a href="results.zip">Results</a> (segmentation results in off and ply formats)<br />
+    </p> -->
+
+    <h2>BibTex Reference</h2>
+        <pre>@article{elor2015distilled,
+    author = {Hadar Averbuch-Elor and Yunhai Wang and Yiming Qian and Minglun Gong and Johannes Kopf and Hao Zhang and Daniel Cohen-Or},
+    title = {Distilled Collections from Textual Image Queries},
+    journal   = {Computer Graphics Forum, (Proceedings Eurographics 2015)},
+    volume    = {34},
+    number    = {2},
+    pages     = {to appear},
+    year = 2015,
+}
+        </pre>
+
+     <h2>Presentation slides</h2>
+    <p>
+        To appear later...
+       <!-- <a href="slides.pptx">PPTX</a> (14MB)<br /> -->
+    </p>
+
+    <h2>Acknowledgements</h2>
+    <p>
+This work supported by the Israel Science Foundation, the NSFC Grant (Number 61202222) and the NSERC Grant (Number 293127).
+    </p>
+
+    <!-- <h2>Links</h2>
+    <p>
+    </p> -->
+
+    <p>
+    Last update to the page: January 21, 2015.<br />
+   <!--  Last update to the code: November 23, 2013. -->
+    </p>
+
+</body>
+</html>
